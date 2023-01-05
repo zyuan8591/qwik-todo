@@ -1,0 +1,35 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.add-todo {
+  display: flex;
+  align-items: center;
+
+  .fa-square-plus {
+    font-size: 20px;
+    margin-left: 5px;
+  }
+}
+
+.todo-list {
+  list-style: none;
+  li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    .fa-square-minus {
+      cursor: pointer;
+    }
+  }
+}
+
+.empty-hint {
+  margin-left: 5px;
+  color: red;
+  font-weight: bold;
+  font-size: 14px;
+}
