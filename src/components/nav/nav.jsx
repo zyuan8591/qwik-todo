@@ -11,6 +11,7 @@ export default component$(() => {
     pages: [
       { name: 'Home', route: '/' },
       { name: 'Todo List', route: '/todo/' },
+      { name: 'Backstage', route: '/backstage/' },
     ],
   });
 

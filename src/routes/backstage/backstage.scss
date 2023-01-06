@@ -1,0 +1,18 @@
+@import '@/styles/_variable.scss';
+
+.backstage-wrapper {
+  color: $sixth-black;
+
+  .title {
+    font-size: 24px;
+    margin-bottom: 22px;
+  }
+
+  .upload-container {
+    display: grid;
+    gap: 30px;
+    padding: 20px;
+    background: #fff;
+    margin: 7px 0 20px;
+  }
+}

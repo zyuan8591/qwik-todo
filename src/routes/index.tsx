@@ -58,7 +58,10 @@ export default component$(() => {
             <code>npm run qwik add azure-swa</code>
           </td>
           <td>
-            <a href="https://learn.microsoft.com/azure/static-web-apps/overview" target="_blank">
+            <a
+              href="https://learn.microsoft.com/azure/static-web-apps/overview"
+              target="_blank"
+            >
               Azure Static Web Apps
             </a>
           </td>

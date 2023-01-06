@@ -1,0 +1,21 @@
+@import '@/styles/_variable.scss';
+
+.button-container {
+  display: inline-block;
+  width: fit-content;
+  height: 40px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 14px;
+
+  &.confirm {
+    background: $fourth-blue;
+    color: #fff;
+  }
+
+  &.cancel {
+    background: $third-grey;
+    color: $sixth-black;
+  }
+}

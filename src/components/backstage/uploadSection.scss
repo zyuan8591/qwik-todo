@@ -1,0 +1,39 @@
+@import '@/styles/_variable.scss';
+
+.section-container {
+  width: 100%;
+
+  .title-container {
+    color: $primary-black;
+    margin-bottom: 10px;
+  }
+  .upload-form {
+    color: $sixth-black;
+    border: 1px solid $third-grey;
+    border-radius: 3px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+
+    .file {
+      display: flex;
+      align-items: center;
+
+      .upload-file {
+        padding: 10px 20px;
+        color: $fourth-blue;
+        border: 1px solid $fourth-blue;
+        border-radius: 3px;
+        margin-right: 10px;
+      }
+    }
+
+    .button-group {
+      display: flex;
+
+      :global(.cancel) {
+        margin-right: 10px;
+      }
+    }
+  }
+}
