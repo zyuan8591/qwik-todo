@@ -1,0 +1,19 @@
+@import '@/styles/_variable.scss';
+
+section {
+  margin-top: $header-height;
+
+  display: flex;
+  height: calc(100vh - $header-height);
+
+  .slot-container {
+    padding: 30px 1rem 24px 2rem;
+  }
+
+  @media screen and (min-width: 1281px) {
+    padding: 15px calc((100vw - #{$primary-central-width}) / 2) 0;
+  }
+  @media screen and (min-width: 0px) and (max-width: 1280px) {
+    padding: 15px Max(15px, env(safe-area-inset-left, 15px)) 0;
+  }
+}

@@ -1,8 +1,13 @@
 import { component$, useStyles$ } from '@builder.io/qwik';
-import { QwikCityProvider, RouterOutlet, ServiceWorkerRegister } from '@builder.io/qwik-city';
+import {
+  QwikCityProvider,
+  RouterOutlet,
+  ServiceWorkerRegister,
+} from '@builder.io/qwik-city';
 import { RouterHead } from './components/router-head/router-head';
 
-import globalStyles from './global.css?inline';
+import globalStyles from './global.scss?inline';
+// import globalCssVariable from './styles/variable.scss?inline';
 
 export default component$(() => {
   /**
@@ -12,6 +17,7 @@ export default component$(() => {
    * Dont remove the `<head>` and `<body>` elements.
    */
   useStyles$(globalStyles);
+  // useStyles$(globalCssVariable);
 
   return (
     <QwikCityProvider>

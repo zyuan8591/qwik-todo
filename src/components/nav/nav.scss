@@ -1,0 +1,30 @@
+@import '@/styles/_variable.scss';
+
+nav {
+  // height: calc(100vh - $header-height);
+  width: $nav-width;
+  border-right: 2px solid $primary-red;
+  padding: 30px 1rem 24px;
+  display: flex;
+  flex-direction: column;
+
+  span {
+    display: flex;
+    color: $sixth-black;
+    padding: 4px 12px;
+    margin-bottom: 4px;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    border-bottom: 2px solid transparent;
+
+    &.active {
+      color: $primary-red;
+      font-weight: bold;
+    }
+
+    &:hover {
+      border-color: $primary-red;
+      transition: 0.2s;
+    }
+  }
+}

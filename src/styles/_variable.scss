@@ -1,0 +1,86 @@
+$primary-cn: 'Noto Sans TC';
+$secondary-cn: 'PingFang TC';
+// white
+$primary-white: #ffffff;
+$secondary-white: #f7f7f7;
+$primary-white-disabled: rgba(255, 255, 255, 0.4);
+
+// red
+$primary-red: #e52d27;
+$secondary-red: #f24747;
+$third-red: #bf2100;
+$fourth-red: #ee2900;
+$primary-red-disabled: rgba(229, 45, 39, 0.4);
+$third-red-disabled: rgba(191, 33, 0, 0.4);
+
+// black
+$primary-black: #000000;
+$secondary-black: #232323;
+$third-black: #293240;
+$fourth-black: #354052;
+$fifth-black: #8b8fa2;
+$sixth-black: #333333;
+$seventh-black: #303132;
+$eighth-black: #233142;
+$fourth-black-disabled: rgba(53, 64, 82, 0.4);
+$fifth-black-disabled: rgba(139, 143, 162, 0.4);
+$placeholder-black: #7a7a7a;
+
+//grey
+$primary-grey: #f3f5fa;
+$secondary-grey: #616366;
+$third-grey: #e6e6e6;
+$fourth-grey: #c4c5cc;
+$sixth-grey: #4a4a4a;
+$seventh-grey: #f4f4f6;
+$eighth-grey: #aaaaaa;
+$ninth-grey: #aaadb3;
+$primary-grey-disabled: rgba(245, 247, 250, 0.4);
+$secondary-grey-disabled: rgba(97, 99, 102, 0.4);
+$third-grey-disabled: rgba(230, 230, 230, 0.4);
+$eighth-grey-disabled: rgba(170, 170, 170, 0.4);
+$hr-grey: #979797;
+$scrollbar-thumb-grey: #dadada;
+
+//blue
+$primary-blue: #009bef;
+$secondary-blue: #008bbf;
+$third-blue: #2196f3;
+$fourth-blue: #00adee;
+$primary-blue-disabled: rgba(0, 155, 239, 0.4);
+$secondary-blue-disabled: rgba(0, 139, 191, 0.4);
+
+//green
+$primary-green: #72bf24;
+
+//variable
+$header-height: 100px;
+$mobile-header-height: 60px;
+$footer-height: 60px;
+
+$nav-width: 225px;
+
+$primary-section-width: 258px; //section+tagButton
+$secondary-section-width: 225px; //section
+$third-section-width: 0px;
+
+//Variable
+$primary-central-width: 1220px; //container寬度
+$secondary-central-width: 962px; //sectionShow時main-content的寬度
+$third-central-width: 770px;
+$fourth-central-width: calc(
+  100% -
+    Max(
+      env(safe-area-inset-right, 0) * 2,
+      env(safe-area-inset-left, 0) * 2,
+      40px
+    )
+);
+$fifth-central-width: calc(
+  100% -
+    Max(
+      env(safe-area-inset-right, 0) * 2,
+      env(safe-area-inset-left, 0) * 2,
+      30px
+    )
+);
