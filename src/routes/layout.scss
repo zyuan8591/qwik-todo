@@ -9,6 +9,7 @@ section {
   .slot-container {
     padding: 30px 1rem 24px 2rem;
     flex: 1 1 auto;
+    overflow-y: scroll;
   }
 
   @media screen and (min-width: 1281px) {
