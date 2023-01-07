@@ -30,7 +30,7 @@ export default component$(() => {
 
   useClientEffect$(
     async () => {
-      state.todoList = await getTodo();
+      state.todoList = (await getTodo()) || [];
       console.log(state.todoList);
     },
     {

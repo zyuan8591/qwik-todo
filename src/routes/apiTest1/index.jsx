@@ -3,7 +3,6 @@ import {
   useStylesScoped$,
   useResource$,
   Resource,
-  $,
 } from '@builder.io/qwik';
 import style from './apiTest1.scss?inline';
 import axios from 'axios';
