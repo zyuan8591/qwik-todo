@@ -1,4 +1,4 @@
-import { component$, useStylesScoped$, Slot, $ } from '@builder.io/qwik';
+import { component$, useStylesScoped$, Slot } from '@builder.io/qwik';
 import style from './modal.scss';
 import Button from './button';
 

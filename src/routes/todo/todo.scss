@@ -12,6 +12,11 @@
     font-size: 20px;
     margin-left: 5px;
   }
+
+  input {
+    border-radius: 50px;
+    padding: 5px 15px;
+  }
 }
 
 .todo-list {
@@ -32,8 +37,4 @@
   color: red;
   font-weight: bold;
   font-size: 14px;
-}
-
-.hellolink {
-  color: red !important;
 }
