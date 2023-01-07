@@ -8,6 +8,15 @@
     color: $primary-black;
     margin-bottom: 10px;
   }
+
+  :global(.modal-wrapper) {
+    .body {
+      font-size: 32px;
+      font-weight: bold;
+      color: $primary-green;
+    }
+  }
+
   .upload-form {
     color: $sixth-black;
     border: 1px solid $third-grey;

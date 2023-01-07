@@ -1,6 +1,6 @@
 import { component$, useStore, useStylesScoped$, $ } from '@builder.io/qwik';
 import style from './backstage.scss?inline';
-import UploadSection from '@/components/backstage/uploadSection';
+import UploadSection from './uploadSection';
 
 export default component$(() => {
   useStylesScoped$(style);
