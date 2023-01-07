@@ -8,7 +8,7 @@ import {
   useClientEffect$,
 } from '@builder.io/qwik';
 import { isBrowser } from '@builder.io/qwik/build';
-import styles from './todo.scss?inline';
+import styles from './todo.scss';
 
 export default component$(() => {
   useStylesScoped$(styles);
@@ -86,6 +86,7 @@ export default component$(() => {
 
   return (
     <>
+      <div class="title">Todo List</div>
       <div class="add-todo">
         <input
           value={todoInput.value}

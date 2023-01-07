@@ -1,5 +1,5 @@
 import { component$, useStylesScoped$ } from '@builder.io/qwik';
-import style from './button.scss?inline';
+import style from './button.scss';
 
 export default component$(
   ({ className, type = 'confirm', text = '按鈕', clickHandler$ }) => {
