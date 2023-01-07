@@ -1,5 +1,5 @@
 import { component$, useStylesScoped$, Slot } from '@builder.io/qwik';
-import style from './modal.scss';
+import style from './modal.scss?inline';
 import Button from './button';
 
 export default component$(({ title = '標題', closeHandler$ }) => {

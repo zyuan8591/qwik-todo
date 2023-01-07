@@ -4,14 +4,12 @@ import {
   useStore,
   $,
   useSignal,
-  useTask$,
   useClientEffect$,
 } from '@builder.io/qwik';
-import { isBrowser } from '@builder.io/qwik/build';
-import styles from './todo.scss';
+import style from './todo.scss?inline';
 
 export default component$(() => {
-  useStylesScoped$(styles);
+  useStylesScoped$(style);
   const todoInput = useSignal('');
   const todoInputHint = useSignal('');
   const editInput = useSignal('');
@@ -22,8 +20,8 @@ export default component$(() => {
     { recursive: true }
   );
 
-  const saveTodo = $((todo) => {
-    window.localStorage.setItem('todo', JSON.stringify(todo));
+  const saveTodo = $(() => {
+    window.localStorage.setItem('todo', JSON.stringify(state.todoList));
   });
 
   const getTodo = $(() => {
@@ -33,16 +31,12 @@ export default component$(() => {
   useClientEffect$(
     async () => {
       state.todoList = await getTodo();
+      console.log(state.todoList);
     },
     {
       eagerness: 'idle', // 'load' | 'visible' | 'idle'
     }
   );
-
-  useTask$(async ({ track }) => {
-    track(() => state.todoList);
-    if (isBrowser) saveTodo(state.todoList);
-  });
 
   const todoInputHandler = $((e) => {
     todoInput.value = e.target.value;
@@ -61,10 +55,12 @@ export default component$(() => {
     state.todoList = [{ todo, edit: false }, ...state.todoList];
     todoInput.value = '';
     updateTodoInputHint('');
+    saveTodo();
   });
 
   const delTodo = $((id) => {
     state.todoList = state.todoList.filter((todo, idx) => idx !== id);
+    saveTodo();
   });
 
   const goEditing = $((id) => {
@@ -81,7 +77,7 @@ export default component$(() => {
       return { ...todo, edit: false };
     });
     state.todoList = newTodo;
-    saveTodo(state.todoList);
+    saveTodo();
   });
 
   return (

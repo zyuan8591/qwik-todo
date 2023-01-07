@@ -1,5 +1,5 @@
 import { component$, useSignal, useStylesScoped$, $ } from '@builder.io/qwik';
-import style from './uploadSection.scss';
+import style from './uploadSection.scss?inline';
 import Button from '@/components/common/button';
 import Modal from '@/components/common/modal';
 

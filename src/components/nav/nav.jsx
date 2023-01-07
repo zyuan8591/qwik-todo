@@ -1,6 +1,6 @@
 import { component$, useStylesScoped$, useStore } from '@builder.io/qwik';
 import { Link, useLocation } from '@builder.io/qwik-city';
-import style from './nav.scss';
+import style from './nav.scss?inline';
 
 export default component$(() => {
   useStylesScoped$(style);
@@ -12,7 +12,7 @@ export default component$(() => {
       { name: 'Home', route: '/' },
       { name: 'Todo List', route: '/todo/' },
       { name: 'Backstage', route: '/backstage/' },
-      { name: 'Stock', route: '/stock/' },
+      { name: 'Api test 1', route: '/apiTest1/' },
     ],
   });
 
