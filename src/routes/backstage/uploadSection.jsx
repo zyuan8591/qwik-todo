@@ -1,7 +1,7 @@
 import { component$, useSignal, useStylesScoped$, $ } from '@builder.io/qwik';
 import style from './uploadSection.scss?inline';
-import Modal from '@/components/common/modal';
 import Button from '@/components/bmsSample/button';
+import Modal from '@/components/bmsSample/modal';
 
 export default component$(({ title, uploadProdHandler$, downloadFileName }) => {
   useStylesScoped$(style);
@@ -44,13 +44,12 @@ export default component$(({ title, uploadProdHandler$, downloadFileName }) => {
   return (
     <div class="section-container">
       <div class="title-container">{title}</div>
-      {showModal.value && (
-        <Modal closeHandler$={closeModal} title={title}>
-          <div q:slot="body" class="body">
-            下載成功
-          </div>
-        </Modal>
-      )}
+      <Modal isShow={showModal.value} title={title} onClose$={closeModal}>
+        <div q:slot="modal-content">下載成功</div>
+        <div q:slot="modal-bottom">
+          <Button buttonWord="關閉" buttonStyle="blue" onClick$={closeModal} />
+        </div>
+      </Modal>
       <div class="upload-form">
         {/* 上傳檔案區塊 */}
         <div class="upload-row">
