@@ -13,6 +13,7 @@ export default component$(() => {
       { name: 'Todo List', route: '/todo/' },
       { name: 'Backstage', route: '/backstage/' },
       { name: 'Api test 1', route: '/apiTest1/' },
+      { name: 'Api test 2', route: '/apiTest2/' },
       { name: 'BMS sample', route: '/bmsSample/' },
     ],
   });
