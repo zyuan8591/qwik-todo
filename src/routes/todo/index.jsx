@@ -32,10 +32,10 @@ export default component$(() => {
     async () => {
       state.todoList = (await getTodo()) || [];
       console.log(state.todoList);
-    },
-    {
-      eagerness: 'idle', // 'load' | 'visible' | 'idle'
     }
+    // {
+    //   eagerness: 'load', // 'load' | 'visible' | 'idle'
+    // }
   );
 
   const todoInputHandler = $((e) => {

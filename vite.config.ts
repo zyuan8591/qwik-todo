@@ -16,5 +16,16 @@ export default defineConfig(() => {
         '@': resolve(__dirname, 'src'),
       },
     },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          sourceMap: false,
+          additionalData(source, fp) {
+            if (fp.endsWith('variable.scss')) return source;
+            return `@import '@/assets/styles/variable.scss'; ${source}`;
+          },
+        },
+      },
+    },
   };
 });

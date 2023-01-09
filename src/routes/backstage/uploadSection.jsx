@@ -1,7 +1,7 @@
 import { component$, useSignal, useStylesScoped$, $ } from '@builder.io/qwik';
 import style from './uploadSection.scss?inline';
-import Button from '@/components/common/button';
 import Modal from '@/components/common/modal';
+import Button from '@/components/bmsSample/button';
 
 export default component$(({ title, uploadProdHandler$, downloadFileName }) => {
   useStylesScoped$(style);
@@ -54,9 +54,11 @@ export default component$(({ title, uploadProdHandler$, downloadFileName }) => {
       <div class="upload-form">
         {/* 上傳檔案區塊 */}
         <div class="upload-row">
-          <div class="button" onClick$={chooseFileHandler}>
-            選擇上傳檔案
-          </div>
+          <Button
+            buttonWord="選擇上傳檔案"
+            buttonStyle="blue-hollow"
+            onClick$={chooseFileHandler}
+          />
           <div class="file-name">
             {fileName.value && (
               <span>
@@ -68,13 +70,19 @@ export default component$(({ title, uploadProdHandler$, downloadFileName }) => {
               {errorMsg.value && `*${errorMsg.value}`}
             </span>
           </div>
-          <Button text="上傳" clickHandler$={uploadProdHandler} />
+          <Button
+            buttonWord="上傳"
+            buttonStyle="blue"
+            onClick$={uploadProdHandler}
+          />
         </div>
         {/* 下載檔案區塊 */}
         <div class="download-row">
-          <div class="button" onClick$={downloadFile}>
-            下載檔案
-          </div>
+          <Button
+            buttonWord="下載檔案"
+            buttonStyle="blue-hollow"
+            onClick$={downloadFile}
+          />
           <div class="file-name">{downloadFileName}</div>
         </div>
       </div>

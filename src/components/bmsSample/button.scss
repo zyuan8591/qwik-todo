@@ -1,0 +1,275 @@
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  outline-offset: -1px;
+  border-radius: 3px;
+  margin-right: 10px;
+
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+
+  &.disabled {
+    opacity: 1 !important;
+    cursor: not-allowed !important;
+  }
+
+  &:last-child {
+    margin-right: 0px;
+  }
+
+  &.big-icon {
+    height: 20px;
+    width: 20px;
+  }
+  &.dashboard-button {
+    border-radius: 8px;
+  }
+}
+
+.small-button {
+  height: 34px;
+  padding: 0 10px;
+
+  .button-icon {
+    height: 15px;
+    width: 15px;
+    margin-right: 6px;
+  }
+
+  .button-word {
+    word-break: keep-all;
+    font-size: 0.875rem;
+  }
+}
+
+.default-button {
+  height: 40px;
+  padding: 0 20px;
+
+  .button-icon {
+    height: 15px;
+    width: 15px;
+    margin-right: 5px;
+  }
+
+  .button-word {
+    word-break: keep-all;
+    font-size: 0.875rem;
+  }
+}
+
+.large-button {
+  height: 60px;
+  padding: 0 40px;
+
+  .button-icon {
+    height: 21px;
+    width: 21px;
+    margin-right: 6px;
+  }
+
+  .button-word {
+    word-break: keep-all;
+    font-size: 1rem;
+  }
+}
+
+.hollow-button {
+  box-shadow: 0 0 0 1px $fifth-black inset;
+  background-color: $primary-grey;
+
+  .button-word {
+    color: $fourth-black;
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 2px $fifth-black inset;
+  }
+
+  &.disabled {
+    box-shadow: 0 0 0 1px $fifth-black-disabled inset;
+    background-color: $primary-grey-disabled;
+
+    .button-word {
+      color: $fourth-black-disabled;
+    }
+
+    &:hover {
+      box-shadow: 0 0 0 2px $fifth-black-disabled inset;
+    }
+  }
+}
+
+.blue-hollow-button {
+  box-shadow: 0 0 0 1px $fourth-blue inset;
+
+  .button-word {
+    color: $fourth-blue;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 0 2px $secondary-blue inset;
+  }
+
+  &.disabled {
+    box-shadow: 0 0 0 1px $primary-blue-disabled inset;
+    background-color: $primary-grey-disabled;
+
+    .button-word {
+      color: $primary-blue-disabled;
+    }
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 0 2px $primary-blue-disabled inset;
+    }
+  }
+}
+
+.grey-button {
+  background-color: $third-grey;
+
+  .button-word {
+    color: $sixth-black;
+  }
+
+  &:hover {
+    background-color: $eighth-grey;
+  }
+
+  &.disabled {
+    background-color: $third-grey-disabled;
+
+    .button-word {
+      color: $fourth-black-disabled;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $eighth-grey-disabled;
+    }
+  }
+}
+
+.red-button {
+  background-color: $primary-red;
+
+  .button-word {
+    color: $primary-white;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $third-red;
+  }
+
+  &.disabled {
+    background-color: $primary-red-disabled;
+
+    .button-word {
+      color: $primary-white-disabled;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $third-red-disabled;
+    }
+  }
+}
+
+.dashed-border-button {
+  border: 1px dashed $secondary-grey;
+  background-color: rgba(0, 0, 0, 0);
+
+  .button-word {
+    color: $secondary-grey;
+  }
+
+  &:hover,
+  &:focus {
+    border: 1px dashed transparent;
+    position: relative;
+    &::after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: inherit;
+      border: 2px dashed $secondary-grey;
+      border-radius: 3px;
+    }
+  }
+
+  &.disabled {
+    border: 1px dashed $secondary-grey-disabled;
+    background-color: $primary-grey-disabled;
+
+    .button-word {
+      color: $secondary-grey-disabled;
+    }
+
+    &:hover,
+    &:focus {
+      border: 1px dashed transparent;
+      position: relative;
+      &::after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: inherit;
+        border: 2px dashed $secondary-grey-disabled;
+        border-radius: 3px;
+      }
+    }
+  }
+}
+
+.blue-button {
+  background-color: $fourth-blue;
+
+  .button-word {
+    color: $primary-white;
+  }
+
+  &:hover {
+    background-color: $secondary-blue;
+  }
+
+  &.disabled {
+    background-color: $primary-blue-disabled;
+
+    .button-word {
+      color: $primary-white-disabled;
+    }
+
+    &:hover {
+      background-color: $secondary-blue-disabled;
+    }
+  }
+}
+.dashboard-button {
+  background: $dashboard-gradient;
+
+  .button-word {
+    color: $primary-white;
+  }
+
+  &:hover {
+    background: $dashboard-gradient-hover;
+  }
+
+  &.disabled {
+    background: $dashboard-gradient-disabled;
+
+    .button-word {
+      color: $primary-white-disabled;
+    }
+
+    &:hover {
+      background: $dashboard-gradient-disabled;
+    }
+  }
+}
