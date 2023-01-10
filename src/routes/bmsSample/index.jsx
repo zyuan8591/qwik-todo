@@ -1,13 +1,27 @@
 import { component$, useStylesScoped$, $, useStore } from '@builder.io/qwik';
 import style from './bmsSample.scss?inline';
-import Button from '@/components/bmsSample/button';
-import Modal from '@/components/bmsSample/modal';
+import Button from '@/components/button';
+import Modal from '@/components/modal';
+import Dropdown from '@/components/dropdown';
 
 export default component$(() => {
   useStylesScoped$(style);
 
   const state = useStore({
     isShowModal: false,
+    dropdownOne: '',
+    dropdownTwo: '',
+    options: [
+      { label: '全部', value: '' },
+      { label: 1, value: 1 },
+      { label: 2, value: 2 },
+      { label: 3, value: 3 },
+      { label: 4, value: 4 },
+      { label: 5, value: 5 },
+      { label: 6, value: 6 },
+      { label: 7, value: 7 },
+      { label: 8, value: 8 },
+    ],
   });
 
   const buttonClick = $(() => {
@@ -20,6 +34,14 @@ export default component$(() => {
 
   const openModal = $(() => {
     state.isShowModal = true;
+  });
+
+  const setDropdownVal = $((val) => {
+    state.dropdownOne = val;
+  });
+
+  const setDropdownVal2 = $((val) => {
+    state.dropdownTwo = val;
   });
 
   return (
@@ -60,6 +82,22 @@ export default component$(() => {
           </div>
         </Modal>
       )}
+      <div class="dropdown-container">
+        <Dropdown
+          title="下拉選項"
+          required={true}
+          value={state.dropdownOne}
+          options={state.options}
+          setValue$={setDropdownVal}
+        />
+        <Dropdown
+          title="下拉選項2"
+          value={state.dropdownTwo}
+          options={state.options}
+          setValue$={setDropdownVal2}
+          searchable={true}
+        />
+      </div>
     </div>
   );
 });

@@ -1,12 +1,12 @@
 .sample-container {
+  > :global(*) {
+    display: flex;
+    margin-bottom: 16px;
+  }
+
   .title {
     font-size: 24px;
     margin-bottom: 22px;
-  }
-
-  .button-components {
-    display: flex;
-    margin-bottom: 1rem;
   }
 
   :global(.modal) {
@@ -16,5 +16,12 @@
         justify-content: flex-end;
       }
     }
+  }
+
+  .dropdown-container {
+    padding: 10px;
+    background: #fff;
+    display: flex;
+    gap: 10px;
   }
 }

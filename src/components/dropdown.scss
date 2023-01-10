@@ -1,0 +1,181 @@
+.info-icon {
+  margin-left: 5px;
+  width: 14px;
+  height: 14px;
+}
+.input-container {
+  width: 210px;
+  margin-bottom: 28px;
+  position: relative;
+
+  &:last-child {
+    margin-right: 0px;
+  }
+}
+
+.placeholder {
+  color: $placeholder-black;
+}
+
+.select-container {
+  position: relative;
+}
+
+.x-cancel-icon {
+  display: block;
+  background-image: url('../../assets/styles/image/btn_cancel_normal.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 14px;
+  right: 4%;
+  background-color: $primary-grey;
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+}
+
+.textbox-container {
+  overflow-x: hidden;
+}
+
+.select {
+  background-color: $primary-grey;
+  border: 1px solid $primary-grey;
+  box-sizing: border-box;
+  border-radius: 3px;
+  outline: none;
+  padding: 10px 25px 10px 10px;
+  font-size: 14px;
+  line-height: 16px;
+  color: $seventh-black;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+
+  /*
+        prevent iOS scale
+        enlarge by 16/14 = 114.285714286%
+        scale down by 14/16 = 0.875%
+            height 40/0.875 = 45.7142857143
+    */
+  font-size: 16px;
+  height: 45.7142857143px;
+  width: 114.285714286%;
+  transform: scale(0.8753);
+  transform-origin: left top;
+
+  &:focus {
+    border: 1px solid $third-blue;
+  }
+
+  &.error {
+    border: 1px solid $primary-red !important;
+  }
+}
+
+.option-container {
+  display: block;
+  position: absolute;
+  background-color: $primary-white;
+  border: 1px solid $primary-grey;
+  border-radius: 0 0 3px 3px;
+  max-height: 140px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 4px 0 rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  margin-top: -6px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 40px;
+  padding: 10px 10px;
+  color: $seventh-black;
+  font-size: 14px;
+  line-height: 16px;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  pointer-events: inherit;
+  position: relative;
+
+  &.hover {
+    background: $primary-grey;
+  }
+  &.disabled {
+    opacity: 1;
+    &:hover {
+      background: #fff;
+    }
+  }
+}
+
+.form-label {
+  color: $sixth-black;
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+
+  .required {
+    color: $primary-red;
+  }
+}
+
+.error-message {
+  position: absolute;
+  font-size: 12px;
+  color: $fourth-red;
+  margin-top: 5px;
+}
+
+.option-divider {
+  padding-inline: 5px;
+  background-color: $primary-white;
+  justify-self: center;
+  margin: 0 auto;
+  color: $placeholder-black;
+  &::after {
+    content: '';
+    width: calc(100% - 20px);
+    height: 1px;
+    left: 10px;
+    top: 50%;
+    background-color: $placeholder-black;
+    position: absolute;
+    z-index: -1;
+  }
+}
+
+:deep(.checkbox-container) {
+  position: relative;
+
+  label {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding-left: 36px;
+    width: calc(100% - 36px);
+    height: 100%;
+  }
+}
+
+// 目前沒查到原因，先用CSS將小人頭隱藏不讓使用者按到
+input::-webkit-contacts-auto-fill-button,
+input::-webkit-credentials-auto-fill-button {
+  visibility: hidden;
+  position: absolute;
+  right: 0;
+}

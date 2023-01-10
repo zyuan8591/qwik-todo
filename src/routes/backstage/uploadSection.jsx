@@ -1,7 +1,7 @@
 import { component$, useSignal, useStylesScoped$, $ } from '@builder.io/qwik';
 import style from './uploadSection.scss?inline';
-import Button from '@/components/bmsSample/button';
-import Modal from '@/components/bmsSample/modal';
+import Button from '@/components/button';
+import Modal from '@/components/modal';
 
 export default component$(({ title, uploadProdHandler$, downloadFileName }) => {
   useStylesScoped$(style);
