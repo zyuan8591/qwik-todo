@@ -43,15 +43,23 @@ export default component$(({ title, uploadProdHandler$, downloadFileName }) => {
 
   return (
     <div class="section-container">
-      <div class="title-container">{title}</div>
-      <Modal isShow={showModal.value} title={title} onClose$={closeModal}>
-        <div q:slot="modal-content">下載成功</div>
-        <div q:slot="modal-bottom">
-          <Button buttonWord="關閉" buttonStyle="blue" onClick$={closeModal} />
-        </div>
-      </Modal>
+      <div class="title-container">
+        <div>{title}</div>
+        <div class="time">最後更新時間：2023-01-01 17:05</div>
+      </div>
+      {showModal.value && (
+        <Modal isShow={showModal.value} title={title} onClose$={closeModal}>
+          <div q:slot="modal-content">下載成功</div>
+          <div q:slot="modal-bottom">
+            <Button
+              buttonWord="關閉"
+              buttonStyle="blue"
+              onClick$={closeModal}
+            />
+          </div>
+        </Modal>
+      )}
       <div class="upload-form">
-        {/* 上傳檔案區塊 */}
         <div class="upload-row">
           <Button
             buttonWord="選擇上傳檔案"
@@ -75,7 +83,6 @@ export default component$(({ title, uploadProdHandler$, downloadFileName }) => {
             onClick$={uploadProdHandler}
           />
         </div>
-        {/* 下載檔案區塊 */}
         <div class="download-row">
           <Button
             buttonWord="下載檔案"
@@ -83,6 +90,9 @@ export default component$(({ title, uploadProdHandler$, downloadFileName }) => {
             onClick$={downloadFile}
           />
           <div class="file-name">{downloadFileName}</div>
+        </div>
+        <div class="result-row">
+          <span class="result-btn">查看檔案編輯結果</span>
         </div>
       </div>
     </div>

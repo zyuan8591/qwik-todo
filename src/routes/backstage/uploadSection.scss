@@ -5,6 +5,13 @@
   .title-container {
     color: $primary-black;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .time {
+      font-size: 12px;
+    }
   }
 
   :global(.modal-wrapper) {
@@ -44,16 +51,6 @@
       display: grid;
       align-items: center;
       gap: 10px;
-
-      .button {
-        padding: 10px 20px;
-        color: $fourth-blue;
-        border: 1px solid $fourth-blue;
-        border-radius: 3px;
-        text-align: center;
-        cursor: pointer;
-        user-select: none;
-      }
     }
 
     .upload-row {
@@ -79,6 +76,19 @@
     .download-row {
       grid-template-columns: 150px 1fr;
       align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: flex-end;
+      color: $fourth-blue;
+
+      .result-btn {
+        flex-grow: 0;
+        border-bottom: 1px solid $fourth-blue;
+        cursor: pointer;
+      }
     }
   }
 }

@@ -39,21 +39,27 @@ export default component$(() => {
         buttonStyle="hollow"
         onClick$={openModal}
       />
-      <Modal
-        title="範例 Modal"
-        onClose$={closeModal}
-        isShow={state.isShowModal}
-      >
-        <div q:slot="modal-content">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum alias
-          mollitia nulla consequatur. Voluptatem minima quibusdam aliquam ipsum
-          aspernatur molestiae officiis eum, dolores eaque fuga voluptatum,
-          labore tempora mollitia? Dicta.
-        </div>
-        <div q:slot="modal-bottom">
-          <Button buttonWord="關閉" buttonStyle="blue" onClick$={closeModal} />
-        </div>
-      </Modal>
+      {state.isShowModal && (
+        <Modal
+          title="範例 Modal"
+          onClose$={closeModal}
+          isShow={state.isShowModal}
+        >
+          <div q:slot="modal-content">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum
+            alias mollitia nulla consequatur. Voluptatem minima quibusdam
+            aliquam ipsum aspernatur molestiae officiis eum, dolores eaque fuga
+            voluptatum, labore tempora mollitia? Dicta.
+          </div>
+          <div q:slot="modal-bottom">
+            <Button
+              buttonWord="關閉"
+              buttonStyle="blue"
+              onClick$={closeModal}
+            />
+          </div>
+        </Modal>
+      )}
     </div>
   );
 });
