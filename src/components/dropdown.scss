@@ -23,7 +23,7 @@
 
 .x-cancel-icon {
   display: block;
-  background-image: url('../../assets/styles/image/btn_cancel_normal.png');
+  background-image: url('../assets/images/btn_cancel_normal.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -178,4 +178,15 @@ input::-webkit-credentials-auto-fill-button {
   visibility: hidden;
   position: absolute;
   right: 0;
+}
+
+.select {
+  background-image: url('../assets/images/btn_dropdown_normal.png');
+  background-position: 96%;
+  background-repeat: no-repeat;
+  background-size: 12px;
+  font-family: $primary-cn;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
