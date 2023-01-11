@@ -39,6 +39,7 @@ export default component$(
       filterOption: [],
       containerStyle: {},
       dropdownStyleClass: {},
+      isComposing: false,
     });
 
     const getFilterOption = $(() => {
@@ -150,9 +151,9 @@ export default component$(
       }
     });
 
-    // const compositionStartHandler = $(() => {
-    //   this.isComposing = true;
-    // });
+    const compositionStartHandler = $(() => {
+      state.isComposing = true;
+    });
 
     const hoverOptionByKeyboard = $((direct, e) => {
       state.isShowList = true;
@@ -174,10 +175,10 @@ export default component$(
     });
 
     const setHoveredToValue = $(() => {
-      // if (this.isComposing) {
-      //   this.isComposing = false;
-      //   return;
-      // }
+      if (state.isComposing) {
+        state.isComposing = false;
+        return;
+      }
       const option = state.filterOption[state.hoveredIndex];
       if (!option) return;
       changeHandler(option);
@@ -216,7 +217,7 @@ export default component$(
         class="input-container"
         style={state.containerStyle}
         document:onClick$={clickBlankHandler}
-        // document:onCompositionStart$={compositionStartHandler}
+        document:onCompositionStart$={compositionStartHandler}
       >
         {title && (
           <div class="form-label">
@@ -235,7 +236,7 @@ export default component$(
           disabled={true}
           value={value}
           style={{ display: 'none' }}
-          isComposing="false"
+          isComposing={state.isComposing}
         />
         <div class="select-container">
           <div class="textbox-container">
