@@ -7,6 +7,7 @@ import {
   useSignal,
 } from '@builder.io/qwik';
 import style from './dropdown.scss?inline';
+import Checkbox from './checkbox';
 
 export default component$(
   ({
@@ -90,7 +91,7 @@ export default component$(
       if (state.searchValue === '') setValue$('');
     });
 
-    useClientEffect$(async ({ track }) => {
+    useClientEffect$(({ track }) => {
       track(() => state.selectedOption);
 
       if (mode === 'checkbox') return;
@@ -211,6 +212,25 @@ export default component$(
       state.isShowList = true;
     });
 
+    const getOptionLabel = $(() => {
+      const labelArr = [];
+      state.filterOption.forEach((opt) => {
+        if (value.includes(opt.value)) labelArr.push(opt.label);
+      });
+
+      if (labelArr.length === state.filterOption.length) {
+        return '全部';
+      }
+
+      return labelArr.join(',');
+    });
+
+    useClientEffect$(async ({ track }) => {
+      track(() => value);
+      if (mode === 'select') return;
+      state.searchValue = await getOptionLabel();
+    });
+
     return (
       <div
         ref={dropdownRef}
@@ -295,19 +315,24 @@ export default component$(
                     </div>
                   </div>
                 ))}
-              {/* <template v-if="mode === 'checkbox'">
-          <Checkbox
-            v-for="(option, key) in filteredOption"
-            :key="key"
-            :name="option.label"
-            :label="option.label"
-            :value="option.value"
-            v-model="checkboxValue"
-            class="option"
-            :class="{ hover: key === hoveredIndex }"
-            @mouseenter="hoveredIndex = key"
-          />
-          </template> */}
+              {mode === 'checkbox' &&
+                state.filterOption.map((opt, idx) => (
+                  <Checkbox
+                    key={idx}
+                    name={opt.label}
+                    label={opt.label}
+                    value={opt.value}
+                    onChange$={setValue$}
+                    modelValue={value}
+                    className={{
+                      option: true,
+                      hover: state.hoveredIndex === idx,
+                    }}
+                    onMouseenter$={() => {
+                      state.hoveredIndex = idx;
+                    }}
+                  />
+                ))}
             </div>
           )}
         </div>

@@ -1,26 +1,32 @@
-import { component$, useStylesScoped$, $, useStore } from '@builder.io/qwik';
+import {
+  component$,
+  useStylesScoped$,
+  $,
+  useStore,
+  useClientEffect$,
+} from '@builder.io/qwik';
 import style from './bmsSample.scss?inline';
 import Button from '@/components/button';
 import Modal from '@/components/modal';
 import Dropdown from '@/components/dropdown';
+import Checkbox from '@/components/checkbox';
 
 export default component$(() => {
   useStylesScoped$(style);
 
   const state = useStore({
     isShowModal: false,
-    dropdownOne: '',
-    dropdownTwo: '',
+    dropdownOne: 'property',
+    dropdownTwo: 'property',
+    checkboxOne: [],
+    checkboxTwo: [],
     options: [
-      { label: '全部', value: '' },
-      { label: 1, value: 1 },
-      { label: 2, value: 2 },
-      { label: 3, value: 3 },
-      { label: 4, value: 4 },
-      { label: 5, value: 5 },
-      { label: 6, value: 6 },
-      { label: 7, value: 7 },
-      { label: 8, value: 8 },
+      { label: '產險', value: 'property' },
+      { label: '團險', value: 'group' },
+      { label: '壽險', value: 'lief' },
+      { label: '防疫險', value: 'covid' },
+      { label: '醫療險', value: 'medical' },
+      { label: '儲蓄險', value: 'save' },
     ],
   });
 
@@ -42,6 +48,19 @@ export default component$(() => {
 
   const setDropdownVal2 = $((val) => {
     state.dropdownTwo = val;
+  });
+
+  const setCheckboxValue = $((val) => {
+    state.checkboxOne = val;
+  });
+
+  const setCheckboxValue2 = $((val) => {
+    state.checkboxTwo = val;
+  });
+
+  useClientEffect$(({ track }) => {
+    track(() => state.dropdownOne);
+    console.log(state.dropdownOne);
   });
 
   return (
@@ -97,6 +116,26 @@ export default component$(() => {
           setValue$={setDropdownVal2}
           searchable={true}
         />
+        <Dropdown
+          title="下拉複選"
+          mode="checkbox"
+          value={state.checkboxTwo}
+          options={state.options}
+          setValue$={setCheckboxValue2}
+        />
+      </div>
+      <div>Value: {state.checkboxOne.join(', ')}</div>
+      <div class="checkbox-container">
+        {state.options.map((opt) => (
+          <Checkbox
+            name="test"
+            key={opt.value}
+            value={opt.value}
+            label={opt.label}
+            modelValue={state.checkboxOne}
+            onChange$={setCheckboxValue}
+          />
+        ))}
       </div>
     </div>
   );
